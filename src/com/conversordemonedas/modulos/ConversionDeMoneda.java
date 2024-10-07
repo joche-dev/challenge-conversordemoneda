@@ -3,7 +3,7 @@ package com.conversordemonedas.modulos;
 import java.time.LocalDateTime;
 
 public class ConversionDeMoneda {
-    private LocalDateTime fechaHoraRegistro;
+    private String fechaHoraConversion;
     private String codigoMonedaBase;
     private String codigoMonedaFinal;
     private double tasaDeConversion;
@@ -11,7 +11,7 @@ public class ConversionDeMoneda {
     private double resultadoDeConversion;
 
     public ConversionDeMoneda(MonedaOmdb monedaOmdb, String monedaFinal, double monto) {
-        this.fechaHoraRegistro = LocalDateTime.now().withNano(0);
+        this.fechaHoraConversion = LocalDateTime.now().withNano(0).toString();
         this.codigoMonedaBase = monedaOmdb.base_code();
         this.codigoMonedaFinal = monedaFinal;
         this.tasaDeConversion = monedaOmdb.conversion_rates().get(monedaFinal);

@@ -2,7 +2,10 @@ package com.conversordemonedas.principal;
 
 import com.conversordemonedas.modulos.ConsultaTasaCambioApi;
 import com.conversordemonedas.modulos.ConversionDeMoneda;
+import com.conversordemonedas.modulos.HistorialDeConversiones;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -26,7 +29,6 @@ public class Principal {
                     *********************************************
                     """;
 
-        // Mapeo de las opciones de conversión
         Map<Integer, String[]> opcionesConversion = Map.of(
                 1, new String[]{"USD", "CLP"},
                 2, new String[]{"CLP", "USD"},
@@ -38,7 +40,9 @@ public class Principal {
                 8, new String[]{"COP", "USD"}
         );
 
-        // Uso de try-with-resources para manejar Scanner
+        ArrayList<ConversionDeMoneda> conversionesDeMonedas = new ArrayList<>();
+
+
         try (Scanner teclado = new Scanner(System.in)) {
             ConsultaTasaCambioApi consulta = new ConsultaTasaCambioApi();
 
@@ -50,6 +54,8 @@ public class Principal {
 
                 if (operacionMenu == 9) {
                     System.out.println("Has salido de la aplicación Conversor de Monedas.");
+                    HistorialDeConversiones historial = new HistorialDeConversiones();
+                    historial.guardarJson(conversionesDeMonedas);
                     break;
                 }
 
@@ -60,10 +66,13 @@ public class Principal {
                     String monedaDestino = monedas[1];
                     ConversionDeMoneda conversion = new ConversionDeMoneda(consulta.tasaConversion(monedaOrigen), monedaDestino, monto);
                     System.out.println(conversion);
+                    conversionesDeMonedas.add(conversion);
                 } else {
                     System.out.println("Debe escribir una opción válida! \n");
                 }
             }
+        } catch (RuntimeException | IOException e){
+            System.out.println(e.getMessage());
         }
     }
 

@@ -1,0 +1,18 @@
+[
+  {
+    "fechaHoraConversion": "2024-10-07T00:46:41",
+    "codigoMonedaBase": "USD",
+    "codigoMonedaFinal": "CLP",
+    "tasaDeConversion": 922.0699,
+    "montoDeConversion": 100.0,
+    "resultadoDeConversion": 92206.98999999999
+  },
+  {
+    "fechaHoraConversion": "2024-10-07T00:46:51",
+    "codigoMonedaBase": "CLP",
+    "codigoMonedaFinal": "USD",
+    "tasaDeConversion": 0.001085,
+    "montoDeConversion": 35000.0,
+    "resultadoDeConversion": 37.975
+  }
+]
