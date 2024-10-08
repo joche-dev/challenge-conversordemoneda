@@ -8,10 +8,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class HistorialDeConversiones {
-    public void guardarJson(ArrayList<ConversionDeMoneda> conversionesDeMonedas) throws IOException {
+
+    private static final String ARCHIVO = "HistorialDeConversiones.json";
+
+    public void guardarJson(ArrayList<ConversionDeMoneda> conversionesDeMonedas){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        FileWriter escritura = new FileWriter("HistorialDeConversiones.json");
-        escritura.write(gson.toJson(conversionesDeMonedas));
-        escritura.close();
+        try{
+            FileWriter escritura = new FileWriter(ARCHIVO);
+            escritura.write(gson.toJson(conversionesDeMonedas));
+            escritura.close();
+            System.out.println("El historial de conversiones se ha guardado correctamente en " + ARCHIVO);
+        }catch (IOException e){
+            System.out.println("Error al guardar el historial de conversiones: " + e.getMessage());
+        }
+
     }
 }

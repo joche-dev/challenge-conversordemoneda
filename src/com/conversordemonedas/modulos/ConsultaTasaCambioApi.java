@@ -8,8 +8,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConsultaTasaCambioApi {
-    String URL_BASE = "https://v6.exchangerate-api.com/v6/";
-    String API_KEY = "370a9a369a63bbd2d217d97e";
+
+    private static final String URL_BASE = "https://v6.exchangerate-api.com/v6/";
+    private static final String API_KEY = "370a9a369a63bbd2d217d97e";
 
     public MonedaOmdb tasaConversion(String monedaBase) {
         URI direccion = URI.create(URL_BASE + API_KEY + "/latest/" + monedaBase);
@@ -25,7 +26,7 @@ public class ConsultaTasaCambioApi {
             return new Gson().fromJson(response.body(), MonedaOmdb.class);
 
         } catch (Exception e) {
-            throw new RuntimeException("Error en la solicitud.");
+            throw new RuntimeException("Error en la solicitud de la tasa de cambio: " + e.getMessage());
         }
     }
 }

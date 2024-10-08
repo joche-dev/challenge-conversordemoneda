@@ -1,18 +1,34 @@
 [
   {
-    "fechaHoraConversion": "2024-10-07T00:46:41",
+    "fechaHoraConversion": "2024-10-08 18:08:31",
     "codigoMonedaBase": "USD",
     "codigoMonedaFinal": "CLP",
-    "tasaDeConversion": 922.0699,
+    "tasaDeConversion": 923.7329,
     "montoDeConversion": 100.0,
-    "resultadoDeConversion": 92206.98999999999
+    "resultadoDeConversion": 92373.29
   },
   {
-    "fechaHoraConversion": "2024-10-07T00:46:51",
+    "fechaHoraConversion": "2024-10-08 18:08:47",
     "codigoMonedaBase": "CLP",
     "codigoMonedaFinal": "USD",
-    "tasaDeConversion": 0.001085,
-    "montoDeConversion": 35000.0,
-    "resultadoDeConversion": 37.975
+    "tasaDeConversion": 0.001083,
+    "montoDeConversion": 55000.0,
+    "resultadoDeConversion": 59.565
+  },
+  {
+    "fechaHoraConversion": "2024-10-08 18:09:29",
+    "codigoMonedaBase": "USD",
+    "codigoMonedaFinal": "ARS",
+    "tasaDeConversion": 975.5,
+    "montoDeConversion": 150.0,
+    "resultadoDeConversion": 146325.0
+  },
+  {
+    "fechaHoraConversion": "2024-10-08 18:09:41",
+    "codigoMonedaBase": "ARS",
+    "codigoMonedaFinal": "USD",
+    "tasaDeConversion": 0.001025,
+    "montoDeConversion": 500000.0,
+    "resultadoDeConversion": 512.5
   }
 ]
